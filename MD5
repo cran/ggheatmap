@@ -1,0 +1,6 @@
+02a0383446154ca4044c5ddf02bcfb76 *DESCRIPTION
+e2eee750b07d9e63d96d84eea75f3274 *NAMESPACE
+2c5f78c02fa6b8fa9ddfc2bacd5d3f9e *R/ggheatmap.R
+2265ff5adbe5981c25491e91e9f7e2c0 *man/ggheatmap.Rd
+fbcc775486a2cd480cbaa279f33380e6 *tests/testthat.R
+e6533444c2259076c5db2fababb6144b *tests/testthat/test.ggheatmap.R
