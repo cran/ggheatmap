@@ -1,6 +1,8 @@
-02a0383446154ca4044c5ddf02bcfb76 *DESCRIPTION
-e2eee750b07d9e63d96d84eea75f3274 *NAMESPACE
-2c5f78c02fa6b8fa9ddfc2bacd5d3f9e *R/ggheatmap.R
-2265ff5adbe5981c25491e91e9f7e2c0 *man/ggheatmap.Rd
-fbcc775486a2cd480cbaa279f33380e6 *tests/testthat.R
-e6533444c2259076c5db2fababb6144b *tests/testthat/test.ggheatmap.R
+37a7966b7454958c847eee3dab10572a *DESCRIPTION
+6e76847af7a0995121cc50e3e6743b9a *NAMESPACE
+e1f05530ccbefd9743d01e64c02ffbd9 *R/ggheatmap.R
+da5b8c2750afa1ef50ed1b35dabf9ca4 *R/ggheatmap_plotlist.R
+20ac0375922bafb0c9cfab8816db3643 *R/ggheatmap_theme.R
+6d398c384476a5f5090d6f3efcc4e699 *man/ggheatmap.Rd
+9f0c52f33d48498a3b3551933c7f861c *man/ggheatmap_plotlist.Rd
+5b6399f50b249ef3b364cc23f367f55c *man/ggheatmap_theme.Rd
