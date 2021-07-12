@@ -1,6 +1,6 @@
-37a7966b7454958c847eee3dab10572a *DESCRIPTION
+a09a79552bbad8ab794fe084d14ec2c9 *DESCRIPTION
 6e76847af7a0995121cc50e3e6743b9a *NAMESPACE
-e1f05530ccbefd9743d01e64c02ffbd9 *R/ggheatmap.R
+e984ab7da96bf5ad96becf0d9f943bcd *R/ggheatmap.R
 da5b8c2750afa1ef50ed1b35dabf9ca4 *R/ggheatmap_plotlist.R
 20ac0375922bafb0c9cfab8816db3643 *R/ggheatmap_theme.R
 6d398c384476a5f5090d6f3efcc4e699 *man/ggheatmap.Rd
