@@ -11,6 +11,39 @@
 #'        which is helpful for operations such as puzzles;
 #'     3. Simple and easy to operate;
 #'     4. Optimization of clustering tree visualization.
+#' @usage
+#' ggheatmap(data,
+#'   color=colorRampPalette(c( "#0073c2","white","#efc000"))(100),
+#'   legendName="Express",
+#'   scale="none",
+#'   shape=NULL,
+#'   border=NA,
+#'   cluster_rows = F,
+#'   cluster_cols = F,
+#'   dist_method="euclidean",
+#'   hclust_method="complete",
+#'   text_show_rows=waiver(),
+#'   text_show_cols=waiver(),
+#'   text_position_rows="right",
+#'   text_position_cols="bottom",
+#'   annotation_cols=NULL,
+#'   annotation_rows=NULL,
+#'   annotation_color,
+#'   annotation_width=0.03,
+#'   annotation_position_rows="left",
+#'   annotation_position_cols="top",
+#'   show_cluster_cols=T,
+#'   show_cluster_rows=T,
+#'   cluster_num=NULL,
+#'   tree_height_rows=0.1,
+#'   tree_height_cols=0.1,
+#'   tree_color_rows=NULL,
+#'   tree_color_cols=NULL,
+#'   tree_position_rows="left",
+#'   tree_position_cols="top",
+#'   levels_rows=NULL,
+#'   levels_cols=NULL
+#' )
 #' @author Baiwei Luo
 #' @param data input data(matrix or data.frame)
 #' @param color the color of heatmap
@@ -335,14 +368,17 @@ ggheatmap <- function(data,
 
   #step5.draw your annotation
   if(!is.null(annotation_rows)){
-    annotation_rows$none <- factor(rep(1,nrow(annotation_rows)))
     annotation_rows <- rownames_to_column(annotation_rows,var = "none1")
-    for(i in 1:(ncol(annotation_rows)-2)){
+    for(i in 1:(ncol(annotation_rows)-1)){
+      annotation_rows$none <- factor(rep(names(annotation_rows)[i+1],nrow(annotation_rows)))
       rowlist <- list()
       rowanno <- ggplot()+
         geom_exec(geom_tile,data = annotation_rows,x="none1",y="none",fill=names(annotation_rows)[i+1])+
         scale_fill_manual(values =annotation_color[names(annotation_color)==names(annotation_rows)[i+1]][[1]])+
-        theme_void()+coord_flip()+labs(fill=names(annotation_rows)[i+1])
+        theme(axis.title = element_blank(),axis.text.y = element_blank(),
+              axis.ticks = element_blank(),panel.background = element_blank(),
+              axis.text.x.bottom = element_text(angle = 90,hjust = 0.5,vjust = 0.5))+
+        coord_flip()+labs(fill=names(annotation_rows)[i+1])
       if(annotation_position_rows=="left"){
         p <- p%>%insert_left(rowanno,width =annotation_width )
       }else{
@@ -353,14 +389,17 @@ ggheatmap <- function(data,
     rowanno <- NULL
   }
   if(!is.null(annotation_cols)){
-    annotation_cols$none <- factor(rep(1,nrow(annotation_cols)))
     annotation_cols <- rownames_to_column(annotation_cols,var = "none1")
-    for(i in 1:(ncol(annotation_cols)-2)){
+    for(i in 1:(ncol(annotation_cols)-1)){
+      annotation_cols$none <- factor(rep(names(annotation_cols)[i+1],nrow(annotation_cols)))
       collist <- list()
       colanno <- ggplot()+
         geom_exec(geom_tile,data = annotation_cols,x="none1",y="none",fill=names(annotation_cols)[i+1])+
         scale_fill_manual(values = annotation_color[names(annotation_color)==names(annotation_cols)[i+1]][[1]])+
-        theme_void()+labs(fill=names(annotation_cols)[i+1])
+        scale_y_discrete(position = "right")+
+        theme(axis.title = element_blank(),axis.text.x = element_blank(),
+              axis.ticks = element_blank(),panel.background = element_blank())+
+       labs(fill=names(annotation_cols)[i+1])
       if(annotation_position_cols=="top"){
         p <- p%>%insert_top(colanno,height =annotation_width)
       }else{
@@ -385,7 +424,7 @@ ggheatmap <- function(data,
     if(tree_position_cols=="top"){
       p <- p%>%insert_top(col_ggtreeplot,height = tree_height_cols)
     }else{
-    p <- p%>%insert_bottom(col_ggtreeplot+scale_y_reverse(),height = tree_height_cols)
+      p <- p%>%insert_bottom(col_ggtreeplot+scale_y_reverse(),height = tree_height_cols)
     }
   }
   return(p)
