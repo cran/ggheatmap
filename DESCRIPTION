@@ -1,6 +1,6 @@
 Package: ggheatmap
 Title: Plot Heatmap
-Version: 2.1
+Version: 2.2
 Authors@R: 
     person(given = "Baiwei",
            family = "Luo",
@@ -26,7 +26,7 @@ Depends: ggplot2
 Imports: aplot, factoextra, tibble, ggpubr, tidyr, patchwork
 Suggests: grDevices, stats, testthat
 NeedsCompilation: no
-Packaged: 2021-07-25 13:03:05 UTC; LuoBaiwei
+Packaged: 2022-09-10 13:11:55 UTC; LuoBaiwei
 Author: Baiwei Luo [aut, cre]
 Repository: CRAN
-Date/Publication: 2021-07-25 13:20:02 UTC
+Date/Publication: 2022-09-10 13:32:55 UTC

@@ -12,8 +12,8 @@
 #' @export
 
 ggheatmap_theme <- function(ggheatmap,plotlist,theme){
-  if(max(plotlist)>length(ggheatmap[[1]])){
-    message("The plotlist should be included in 1 ~",length(ggheatmap[[1]]))
+  if(max(plotlist)>length(ggheatmap$plotlist)){
+    message("The plotlist should be included in 1 ~",length(ggheatmap$plotlist))
   }else{
     for(i in 1:length(plotlist)){
       num <- plotlist[i]
